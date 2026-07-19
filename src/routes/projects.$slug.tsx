@@ -92,7 +92,7 @@ function ProjectDetail() {
               Achievements
             </h2>
             <ul className="mt-4 space-y-3">
-              {project.achievements.map((a) => (
+              {project.achievements.map((a: string) => (
                 <li key={a} className="flex gap-3 text-muted-foreground">
                   <Check
                     size={16}
@@ -112,7 +112,7 @@ function ProjectDetail() {
               Tech
             </p>
             <div className="mt-4 flex flex-wrap gap-1.5">
-              {project.tech.map((t) => (
+              {project.tech.map((t: string) => (
                 <TechChip key={t} label={t} />
               ))}
             </div>
