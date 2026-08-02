@@ -160,7 +160,7 @@ export function NavPill() {
               exit={{ scale: 0.25, opacity: 0 }}
               transition={{ duration: 0.34, ease: [0.4, 0, 1, 1] }}
               style={{ transformOrigin: "center" }}
-              className="relative inline-flex items-center gap-1 rounded-full border border-foreground/15 bg-foreground/10 p-1 backdrop-blur-md"
+              className="relative inline-flex items-center gap-1 rounded-full border border-foreground/15 bg-foreground/10 backdrop-blur-md"
             >
               <PillItems active={active} onSelect={setActive} layoutId="nav-pill-active-inline" />
               {!inlineVisible ? null : burstKey > 0 && <DashBurst trigger={burstKey} />}
@@ -182,7 +182,7 @@ export function NavPill() {
               animate={{ opacity: 1, scale: 1 }}
               exit={{ opacity: 0, scale: 0.6 }}
               transition={{ layout: { duration: 0.4, ease: [0.16, 1, 0.3, 1] }, duration: 0.25 }}
-              className="relative inline-flex items-center gap-1 rounded-full border border-foreground/15 bg-foreground/10 p-1 shadow-lg shadow-background/40 backdrop-blur-md"
+              className="relative inline-flex items-center gap-1 rounded-full border border-foreground/15 bg-foreground/10 shadow-lg shadow-background/40 backdrop-blur-md"
             >
               <AnimatePresence mode="popLayout" initial={false}>
                 {dockedExpanded ? (

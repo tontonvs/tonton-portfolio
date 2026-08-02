@@ -11,6 +11,7 @@ import { useEffect, type ReactNode } from "react";
 
 import appCss from "../styles.css?url";
 import { reportLovableError } from "../lib/lovable-error-reporting";
+import { AmbientBackground } from "@/components/portfolio/AmbientBackground";
 
 function NotFoundComponent() {
   return (
@@ -120,6 +121,7 @@ function RootShell({ children }: { children: ReactNode }) {
         <HeadContent />
       </head>
       <body>
+        <AmbientBackground />
         {children}
         <Scripts />
       </body>

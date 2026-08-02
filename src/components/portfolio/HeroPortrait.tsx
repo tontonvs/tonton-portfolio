@@ -1,71 +1,54 @@
-import portraitImg from "@/assets/tonton-portrait.png";
+import { useRef } from "react";
+import {
+  motion,
+  useMotionValue,
+  useSpring,
+  useTransform,
+  useReducedMotion,
+} from "framer-motion";
 
 export function HeroPortrait() {
-  return (
-    <div className="relative aspect-[4/5] w-full max-w-md">
-      {/* bright hot core — small, lightly blurred, so it survives and stays visible */}
-      <div
-        aria-hidden
-        className="absolute -z-10"
-        style={{
-          top: "10%",
-          left: "55%",
-          width: "280px",
-          height: "280px",
-          transform: "translate(-50%, -50%)",
-          background:
-            "radial-gradient(circle, #FFFFFF 0%, #FFE9D6 35%, #FFA054 70%, rgba(255, 160, 84, 0) 100%)",
-          filter: "blur(35px)",
-          opacity: 0.85,
-          pointerEvents: "none",
-        }}
-      />
-      {/* ambient wash — large, heavily blurred, gives the glow room to breathe */}
-      <div
-        aria-hidden
-        className="absolute -z-10"
-        style={{
-          top: "10%",
-          left: "55%",
-          width: "910px",
-          height: "910px",
-          transform: "translate(-50%, -50%)",
-          background:
-            "radial-gradient(circle, #FFA054 0%, #FF7A33 30%, #C9601F 50%, rgba(20, 16, 13, 0) 75%)",
-          filter: "blur(90px)",
-          opacity: 0.6,
-          pointerEvents: "none",
-        }}
-      />
-      <div className="glass-panel relative h-full w-full overflow-hidden rounded-3xl">
-        <img
-          src={portraitImg}
-          alt="Portrait of Tonton Mensah"
-          className="h-full w-full object-cover object-top"
-          style={{
-            filter: "contrast(1.05) sepia(0.15) saturate(1.1) brightness(0.98)",
-          }}
-        />
-        {/* subtle warm scrim so the photo sits into the ember palette rather than reading as a flat cutout */}
-        <div
-          aria-hidden
-          className="pointer-events-none absolute inset-0"
-          style={{
-            background:
-              "linear-gradient(180deg, rgba(20,16,13,0) 55%, rgba(20,16,13,0.55) 100%)",
-          }}
-        />
+  const reduceMotion = useReducedMotion();
+  const ref = useRef<HTMLDivElement>(null);
 
-        {/* signature terminal detail */}
-        <div className="pointer-events-none absolute bottom-4 left-4 right-4">
-          <div className="glass-panel rounded-lg p-3 font-mono text-[11px] leading-relaxed text-muted-foreground">
-            <div>
-              <span className="text-ember">$</span> whoami
-            </div>
-            <div className="text-foreground">tonton — fullstack, offline-first</div>
+  // pointer-driven tilt on the terminal chip only — subtle, spring-damped, disabled under reduced motion
+  const mx = useMotionValue(0);
+  const my = useMotionValue(0);
+  const springConfig = { stiffness: 200, damping: 25, mass: 0.5 };
+  const rotateX = useSpring(useTransform(my, [-0.5, 0.5], [4, -4]), springConfig);
+  const rotateY = useSpring(useTransform(mx, [-0.5, 0.5], [-4, 4]), springConfig);
+
+  function handlePointerMove(e: React.PointerEvent<HTMLDivElement>) {
+    if (reduceMotion || !ref.current) return;
+    const rect = ref.current.getBoundingClientRect();
+    mx.set((e.clientX - rect.left) / rect.width - 0.5);
+    my.set((e.clientY - rect.top) / rect.height - 0.5);
+  }
+  function handlePointerLeave() {
+    mx.set(0);
+    my.set(0);
+  }
+
+  return (
+    <div
+      ref={ref}
+      className="relative aspect-[4/5] w-full max-w-md"
+      style={{ perspective: 1200 }}
+      onPointerMove={handlePointerMove}
+      onPointerLeave={handlePointerLeave}
+    >
+      {/* signature terminal detail — the only remaining surface here, kept glassy on its own */}
+      <motion.div
+        className="pointer-events-none absolute bottom-4 left-4 right-4"
+        style={{ rotateX, rotateY, transformStyle: "preserve-3d" }}
+      >
+        <div className="glass-panel rounded-lg p-3 font-mono text-[11px] leading-relaxed text-muted-foreground">
+          <div>
+            <span className="text-ember">$</span> whoami
           </div>
+          <div className="text-foreground">tonton — fullstack, offline-first</div>
         </div>
-      </div>
+      </motion.div>
     </div>
   );
 }
