@@ -16,49 +16,48 @@ export function AmbientBackground() {
       aria-hidden
       className="pointer-events-none fixed inset-0 -z-10 overflow-hidden"
     >
-      {/* left-column vignette — a neutral light-grey-to-black wash behind the name/title text,
-          separate from the orange glow, giving that text area its own subtle depth */}
+      {/* left-column vignette — radial, centered nearer the name text itself (not just a
+          top-left corner wash), brighter white core illuminating the BG right behind the text,
+          fading to black outward for depth */}
       <div
-        className="absolute inset-y-0 left-0"
+        className="absolute inset-0"
         style={{
-          width: "62%",
           background:
-            "linear-gradient(165deg, rgba(178,173,166,0.16) 0%, rgba(60,56,52,0) 42%, rgba(8,7,6,0.4) 100%)",
+            "radial-gradient(ellipse 620px 480px at 24% 42%, rgba(215,211,204,0.4) 0%, rgba(110,105,98,0.18) 40%, rgba(20,18,16,0.05) 65%, rgba(6,5,4,0.45) 100%)",
         }}
       />
 
-      {/* bright hot core — repositioned lower, nearer vertical center of the name, gently breathing */}
+      {/* bright hot core — reduced ~30%, whiter and larger-proportioned center */}
       <motion.div
         className="absolute"
         animate={glowAnimate}
         transition={glowTransition}
         style={{
           top: "34%",
-          left: "78%",
-          width: "380px",
-          height: "380px",
+          left: "62%",
+          width: "266px",
+          height: "266px",
           transform: "translate(-50%, -50%)",
           background:
-            "radial-gradient(circle, #FFFFFF 0%, #FFE3CF 30%, #FF8A4D 65%, rgba(255, 138, 77, 0) 100%)",
-          filter: "blur(44px)",
-          opacity: 0.85,
+            "radial-gradient(circle, #FFFFFF 0%, #FFFFFF 20%, #FFE3CF 45%, #FF8A4D 75%, rgba(255, 138, 77, 0) 100%)",
+          filter: "blur(31px)",
+          opacity: 0.95,
         }}
       />
-      {/* ambient wash — shifted more orange-red (less yellow), still fades through a
-          desaturated grey haze before dissolving into the page background */}
+      {/* ambient wash — reduced ~30% in size, still orange-red with a grey falloff */}
       <motion.div
         className="absolute"
         animate={ambientAnimate}
         transition={ambientTransition}
         style={{
           top: "32%",
-          left: "74%",
-          width: "1100px",
-          height: "1100px",
+          left: "60%",
+          width: "770px",
+          height: "770px",
           transform: "translate(-50%, -50%)",
           background:
             "radial-gradient(circle, #FF8A4D 0%, #FF5C33 28%, #B23A1A 45%, #7A756F 62%, rgba(122, 117, 111, 0.22) 72%, rgba(15, 13, 11, 0) 88%)",
-          filter: "blur(120px)",
+          filter: "blur(84px)",
           opacity: 0.58,
         }}
       />
