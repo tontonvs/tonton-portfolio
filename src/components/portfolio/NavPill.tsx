@@ -172,7 +172,7 @@ export function NavPill() {
       {/* floating docked pill — mounts collapsed to a small bubble (roughly the size of the
           active selector), bursts with dashes, then extends into the full bar via a layout
           animation (transform-based, not a manual width animation) */}
-      <div className="fixed left-1/2 top-4 z-50 -translate-x-1/2">
+      <div className="fixed left-1/2 top-4 z-50 w-[min(92vw,32rem)] -translate-x-1/2 flex justify-center">
         <AnimatePresence>
           {!inlineVisible && (
             <motion.nav
