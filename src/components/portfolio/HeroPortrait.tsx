@@ -32,7 +32,7 @@ export function HeroPortrait() {
   return (
     <div
       ref={ref}
-      className="relative min-h-[7rem] w-full max-w-md md:aspect-[4/5]"
+      className="relative min-h-[7rem] w-full max-w-full md:aspect-[4/5] md:max-w-md"
       style={{ perspective: 1200 }}
       onPointerMove={handlePointerMove}
       onPointerLeave={handlePointerLeave}
