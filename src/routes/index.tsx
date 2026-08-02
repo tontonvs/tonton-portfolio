@@ -15,7 +15,7 @@ export const Route = createFileRoute("/")({
 
 function Portfolio() {
   return (
-    <main className="relative mx-auto max-w-6xl px-5 pb-24 pt-8 sm:px-8 sm:pt-12">
+    <main className="relative mx-auto max-w-6xl overflow-x-hidden px-5 pb-24 pt-8 sm:px-8 sm:pt-12">
       {/* HERO */}
       <section
         id="home"
@@ -53,22 +53,20 @@ function Portfolio() {
           </StaggerItem>
 
           <StaggerItem delay={0.24}>
-            <div className="mt-8">
+            <div className="mt-8 max-w-full overflow-x-auto">
               <NavPill />
             </div>
           </StaggerItem>
         </div>
 
-        <div className="relative flex justify-center md:justify-end">
-          <div className="absolute right-0 top-0 z-10">
-            <a
-              href="#contact"
-              className="inline-flex items-center gap-2 rounded-full bg-ember px-4 py-2 text-xs font-semibold text-primary-foreground shadow-lg shadow-ember/20 transition-transform hover:scale-[1.03]"
-            >
-              <Download size={14} />
-              Download Resume
-            </a>
-          </div>
+        <div className="relative flex w-full flex-col items-center gap-4 md:block md:gap-0">
+          <a
+            href="#contact"
+            className="static inline-flex items-center gap-2 rounded-full bg-ember px-4 py-2 text-xs font-semibold text-primary-foreground shadow-lg shadow-ember/20 transition-transform hover:scale-[1.03] md:absolute md:right-0 md:top-0 md:z-10"
+          >
+            <Download size={14} />
+            Download Resume
+          </a>
           <StaggerItem delay={0.1} className="w-full max-w-md">
             <HeroPortrait />
           </StaggerItem>
