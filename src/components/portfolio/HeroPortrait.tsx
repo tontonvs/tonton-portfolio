@@ -1,13 +1,21 @@
 export function HeroPortrait() {
   return (
     <div className="relative aspect-[4/5] w-full max-w-md">
-      {/* warm static radial glow */}
+      {/* warm off-center radial glow — spotlight behind the subject */}
       <div
         aria-hidden
-        className="absolute -inset-10 -z-10 rounded-full opacity-70 blur-3xl"
+        className="absolute -z-10"
         style={{
+          top: "10%",
+          left: "55%",
+          width: "700px",
+          height: "700px",
+          transform: "translate(-50%, -50%)",
           background:
-            "radial-gradient(closest-side, color-mix(in oklab, var(--ember) 45%, transparent), transparent 70%)",
+            "radial-gradient(circle, #FFA054 0%, #FF7A33 25%, #C9601F 45%, rgba(20, 16, 13, 0) 70%)",
+          filter: "blur(90px)",
+          opacity: 0.65,
+          pointerEvents: "none",
         }}
       />
       <div className="glass-panel relative h-full w-full overflow-hidden rounded-3xl">
