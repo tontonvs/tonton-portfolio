@@ -51,7 +51,7 @@ function PillItems({
             key={id}
             href={`#${id}`}
             onClick={() => onSelect(id)}
-            className="relative inline-flex items-center gap-1.5 rounded-full px-2.5 py-1.5 font-mono text-xs transition-colors sm:px-3.5"
+            className="relative inline-flex shrink-0 items-center gap-1.5 rounded-full px-2.5 py-1.5 font-mono text-xs transition-colors sm:px-3.5"
           >
             {isActive && (
               <motion.span
@@ -160,7 +160,7 @@ export function NavPill() {
               exit={{ scale: 0.25, opacity: 0 }}
               transition={{ duration: 0.34, ease: [0.4, 0, 1, 1] }}
               style={{ transformOrigin: "center" }}
-              className="relative inline-flex items-center gap-1 rounded-full border border-foreground/15 bg-foreground/10 backdrop-blur-md"
+              className="relative inline-flex max-w-full flex-wrap items-center justify-center gap-1 rounded-3xl border border-foreground/15 bg-foreground/10 p-1 backdrop-blur-md sm:rounded-full sm:p-0"
             >
               <PillItems active={active} onSelect={setActive} layoutId="nav-pill-active-inline" />
               {!inlineVisible ? null : burstKey > 0 && <DashBurst trigger={burstKey} />}
@@ -172,7 +172,7 @@ export function NavPill() {
       {/* floating docked pill — mounts collapsed to a small bubble (roughly the size of the
           active selector), bursts with dashes, then extends into the full bar via a layout
           animation (transform-based, not a manual width animation) */}
-      <div className="fixed left-1/2 top-4 z-50 -translate-x-1/2">
+      <div className="fixed left-1/2 top-4 z-50 flex w-[min(92vw,32rem)] -translate-x-1/2 justify-center">
         <AnimatePresence>
           {!inlineVisible && (
             <motion.nav

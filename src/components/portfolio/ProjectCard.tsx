@@ -21,7 +21,7 @@ export function ProjectCard({ project }: { project: Project }) {
         />
       </div>
       <div className="flex items-center justify-between">
-        <span className="font-mono text-[11px] uppercase tracking-wider text-ember">
+        <span className="font-mono text-[0.6875rem] uppercase tracking-wider text-ember">
           {project.tag}
         </span>
         <ArrowUpRight

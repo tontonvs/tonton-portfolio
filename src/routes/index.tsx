@@ -23,7 +23,7 @@ function Portfolio() {
       >
         <div>
           <StaggerItem delay={0}>
-            <span className="inline-flex items-center gap-2 rounded-full border border-border bg-panel/60 px-3 py-1 font-mono text-[11px] text-muted-foreground">
+            <span className="inline-flex items-center gap-2 rounded-full border border-border bg-panel/60 px-3 py-1 font-mono text-[0.6875rem] text-muted-foreground">
               <span className="relative flex h-1.5 w-1.5">
                 <span className="absolute inline-flex h-full w-full rounded-full bg-available opacity-70" />
                 <span className="relative inline-flex h-1.5 w-1.5 rounded-full bg-available" />
@@ -59,15 +59,18 @@ function Portfolio() {
           </StaggerItem>
         </div>
 
-        <div className="relative flex w-full flex-col items-center gap-4 md:block md:gap-0">
-          <a
-            href="#contact"
-            className="static inline-flex items-center gap-2 rounded-full bg-ember px-4 py-2 text-xs font-semibold text-primary-foreground shadow-lg shadow-ember/20 transition-transform hover:scale-[1.03] md:absolute md:right-0 md:top-0 md:z-10"
-          >
-            <Download size={14} />
-            Download Resume
-          </a>
-          <StaggerItem delay={0.1} className="w-full max-w-md">
+        <div className="relative flex flex-col items-start gap-6 md:items-end md:justify-end">
+          <div className="md:absolute md:right-0 md:top-0 md:z-10">
+            <a
+              href="/resume.pdf"
+              download="Tonton-Mensah-Resume.pdf"
+              className="inline-flex items-center gap-2 rounded-full bg-ember px-4 py-2 text-xs font-semibold text-primary-foreground shadow-lg shadow-ember/20 transition-transform hover:scale-[1.03]"
+            >
+              <Download size={14} />
+              Download Resume
+            </a>
+          </div>
+          <StaggerItem delay={0.1} className="w-full max-w-full md:max-w-md">
             <HeroPortrait />
           </StaggerItem>
         </div>
@@ -86,7 +89,7 @@ function Portfolio() {
           {Object.entries(stack).map(([group, items], i) => (
             <Reveal key={group} delay={i * 0.05}>
               <div className="glass-panel rounded-2xl p-6">
-                <p className="font-mono text-[11px] uppercase tracking-wider text-ember">
+                <p className="font-mono text-[0.6875rem] uppercase tracking-wider text-ember">
                   {group}
                 </p>
                 <div className="mt-4 flex flex-wrap gap-2">
