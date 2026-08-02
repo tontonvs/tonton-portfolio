@@ -32,7 +32,7 @@ export function HeroPortrait() {
   return (
     <div
       ref={ref}
-      className="relative aspect-[4/5] w-full max-w-md"
+      className="relative min-h-[7rem] w-full max-w-full md:aspect-[4/5] md:max-w-md"
       style={{ perspective: 1200 }}
       onPointerMove={handlePointerMove}
       onPointerLeave={handlePointerLeave}
@@ -42,7 +42,7 @@ export function HeroPortrait() {
         className="pointer-events-none absolute bottom-4 left-4 right-4"
         style={{ rotateX, rotateY, transformStyle: "preserve-3d" }}
       >
-        <div className="glass-panel rounded-lg p-3 font-mono text-[11px] leading-relaxed text-muted-foreground">
+        <div className="glass-panel rounded-lg p-3 font-mono text-[0.6875rem] leading-relaxed text-muted-foreground">
           <div>
             <span className="text-ember">$</span> whoami
           </div>

@@ -95,6 +95,8 @@
   html {
     scroll-behavior: smooth;
     overflow-x: hidden;
+    /* global type scale bumped 25% */
+    font-size: 125%;
   }
   body {
     background-color: var(--color-background);
