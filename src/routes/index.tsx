@@ -59,8 +59,8 @@ function Portfolio() {
           </StaggerItem>
         </div>
 
-        <div className="relative flex justify-center md:justify-end">
-          <div className="absolute right-0 top-0 z-10">
+        <div className="relative flex flex-col items-start gap-6 md:items-end md:justify-end">
+          <div className="md:absolute md:right-0 md:top-0 md:z-10">
             <a
               href="#contact"
               className="inline-flex items-center gap-2 rounded-full bg-ember px-4 py-2 text-xs font-semibold text-primary-foreground shadow-lg shadow-ember/20 transition-transform hover:scale-[1.03]"
