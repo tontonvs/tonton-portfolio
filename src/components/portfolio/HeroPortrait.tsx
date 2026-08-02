@@ -8,11 +8,11 @@ export function HeroPortrait() {
         style={{
           top: "10%",
           left: "55%",
-          width: "700px",
-          height: "700px",
+          width: "910px",
+          height: "910px",
           transform: "translate(-50%, -50%)",
           background:
-            "radial-gradient(circle, #FFA054 0%, #FF7A33 25%, #C9601F 45%, rgba(20, 16, 13, 0) 70%)",
+            "radial-gradient(circle, #FFFFFF 0%, #FFA054 10%, #FF7A33 30%, #C9601F 50%, rgba(20, 16, 13, 0) 75%)",
           filter: "blur(90px)",
           opacity: 0.65,
           pointerEvents: "none",
