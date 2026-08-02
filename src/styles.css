@@ -94,6 +94,7 @@
   }
   html {
     scroll-behavior: smooth;
+    overflow-x: hidden;
   }
   body {
     background-color: var(--color-background);
@@ -101,6 +102,7 @@
     font-family: var(--font-sans);
     font-feature-settings: "ss01", "cv11";
     -webkit-font-smoothing: antialiased;
+    overflow-x: hidden;
   }
   ::selection {
     background-color: color-mix(in oklab, var(--ember) 40%, transparent);
