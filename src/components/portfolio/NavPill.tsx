@@ -4,8 +4,8 @@ import { useEffect, useRef, useState } from "react";
 
 const items = [
   { id: "home", label: "Home", icon: Home },
-  { id: "projects", label: "Projects", icon: FolderGit2 },
   { id: "skills", label: "Skills", icon: Layers },
+  { id: "projects", label: "Projects", icon: FolderGit2 },
   { id: "contact", label: "Contact", icon: Mail },
 ];
 
@@ -75,10 +75,53 @@ function PillItems({
   );
 }
 
+/** Small scatter of dash particles that burst outward and fade — a comic-glitch
+ * "disappearance" cue, remounted (and thus re-triggered) whenever `trigger` changes. */
+function DashBurst({ trigger }: { trigger: number }) {
+  const dashesRef = useRef(
+    Array.from({ length: 9 }, () => ({
+      angle: Math.random() * 360,
+      distance: 16 + Math.random() * 20,
+      length: 5 + Math.random() * 7,
+      delay: Math.random() * 0.06,
+    })),
+  );
+
+  return (
+    <AnimatePresence>
+      <motion.div
+        key={trigger}
+        aria-hidden
+        className="pointer-events-none absolute inset-0 flex items-center justify-center"
+      >
+        {dashesRef.current.map((d, i) => {
+          const rad = (d.angle * Math.PI) / 180;
+          return (
+            <motion.span
+              key={i}
+              className="absolute rounded-full bg-ember"
+              style={{ width: d.length, height: 2 }}
+              initial={{ opacity: 0, x: 0, y: 0, rotate: d.angle }}
+              animate={{
+                opacity: [0, 1, 0],
+                x: Math.cos(rad) * d.distance,
+                y: Math.sin(rad) * d.distance,
+              }}
+              transition={{ duration: 0.42, delay: d.delay, ease: "easeOut" }}
+            />
+          );
+        })}
+      </motion.div>
+    </AnimatePresence>
+  );
+}
+
 export function NavPill() {
   const [active, setActive] = useActiveSection();
   const sentinelRef = useRef<HTMLDivElement>(null);
   const [inlineVisible, setInlineVisible] = useState(true);
+  const [dockedExpanded, setDockedExpanded] = useState(false);
+  const [burstKey, setBurstKey] = useState(0);
 
   useEffect(() => {
     const el = sentinelRef.current;
@@ -91,43 +134,90 @@ export function NavPill() {
     return () => observer.disconnect();
   }, []);
 
+  // whenever visibility flips, fire a dash burst and (re)stage the docked pill's
+  // collapsed -> expanded sequence
+  useEffect(() => {
+    setBurstKey((k) => k + 1);
+    if (!inlineVisible) {
+      setDockedExpanded(false);
+      const t = setTimeout(() => setDockedExpanded(true), 220);
+      return () => clearTimeout(t);
+    }
+  }, [inlineVisible]);
+
+  const ActiveIcon = items.find((i) => i.id === active)?.icon ?? Home;
+
   return (
     <>
-      {/* original inline pill — stays exactly where it is, shrinks into a bubble and vanishes
-          once it's about to scroll out of view */}
+      {/* original inline pill — stays exactly where it is, shrinks into a bubble and
+          vanishes (with a dash-glitch burst) once it's about to scroll out of view */}
       <div ref={sentinelRef}>
         <AnimatePresence>
           {inlineVisible && (
             <motion.nav
               aria-label="Section navigation"
               initial={false}
-              exit={{ scale: 0.2, opacity: 0 }}
-              transition={{ duration: 0.28, ease: [0.4, 0, 1, 1] }}
-              className="inline-flex items-center gap-1 rounded-full border border-foreground/15 bg-foreground/10 p-1 backdrop-blur-md"
+              exit={{ scale: 0.25, opacity: 0 }}
+              transition={{ duration: 0.34, ease: [0.4, 0, 1, 1] }}
               style={{ transformOrigin: "center" }}
+              className="relative inline-flex items-center gap-1 rounded-full border border-foreground/15 bg-foreground/10 p-1 backdrop-blur-md"
             >
               <PillItems active={active} onSelect={setActive} layoutId="nav-pill-active-inline" />
+              {!inlineVisible ? null : burstKey > 0 && <DashBurst trigger={burstKey} />}
             </motion.nav>
           )}
         </AnimatePresence>
       </div>
 
-      {/* floating docked pill — mounts only once the inline pill has left view,
-          unravels into place: clip-path grows from a point at the center out to the full pill */}
-      <AnimatePresence>
-        {!inlineVisible && (
-          <motion.nav
-            aria-label="Section navigation (docked)"
-            initial={{ clipPath: "circle(0% at 50% 50%)", opacity: 0, scale: 0.92 }}
-            animate={{ clipPath: "circle(farthest-corner at 50% 50%)", opacity: 1, scale: 1 }}
-            exit={{ clipPath: "circle(0% at 50% 50%)", opacity: 0, scale: 0.92 }}
-            transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
-            className="fixed left-1/2 top-4 z-50 inline-flex -translate-x-1/2 items-center gap-1 rounded-full border border-foreground/15 bg-foreground/10 p-1 shadow-lg shadow-background/40 backdrop-blur-md"
-          >
-            <PillItems active={active} onSelect={setActive} layoutId="nav-pill-active-floating" />
-          </motion.nav>
-        )}
-      </AnimatePresence>
+      {/* floating docked pill — mounts collapsed to a small bubble (roughly the size of the
+          active selector), bursts with dashes, then extends into the full bar via a layout
+          animation (transform-based, not a manual width animation) */}
+      <div className="fixed left-1/2 top-4 z-50 -translate-x-1/2">
+        <AnimatePresence>
+          {!inlineVisible && (
+            <motion.nav
+              aria-label="Section navigation (docked)"
+              layout
+              initial={{ opacity: 0, scale: 0.6 }}
+              animate={{ opacity: 1, scale: 1 }}
+              exit={{ opacity: 0, scale: 0.6 }}
+              transition={{ layout: { duration: 0.4, ease: [0.16, 1, 0.3, 1] }, duration: 0.25 }}
+              className="relative inline-flex items-center gap-1 rounded-full border border-foreground/15 bg-foreground/10 p-1 shadow-lg shadow-background/40 backdrop-blur-md"
+            >
+              <AnimatePresence mode="popLayout" initial={false}>
+                {dockedExpanded ? (
+                  <motion.div
+                    key="full"
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    transition={{ duration: 0.2, delay: 0.1 }}
+                    className="flex items-center gap-1"
+                  >
+                    <PillItems
+                      active={active}
+                      onSelect={setActive}
+                      layoutId="nav-pill-active-floating"
+                    />
+                  </motion.div>
+                ) : (
+                  <motion.span
+                    key="collapsed"
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    exit={{ opacity: 0 }}
+                    transition={{ duration: 0.15 }}
+                    className="flex h-7 w-7 items-center justify-center rounded-full text-background"
+                    style={{ backgroundColor: "var(--foreground)" }}
+                  >
+                    <ActiveIcon size={13} />
+                  </motion.span>
+                )}
+              </AnimatePresence>
+              <DashBurst trigger={burstKey} />
+            </motion.nav>
+          )}
+        </AnimatePresence>
+      </div>
     </>
   );
 }
