@@ -53,7 +53,7 @@ function ProjectDetail() {
 
       <Reveal>
         <div className="mt-8">
-          <span className="font-mono text-[11px] uppercase tracking-wider text-ember">
+          <span className="font-mono text-[0.6875rem] uppercase tracking-wider text-ember">
             {project.tag}
           </span>
           <h1 className="mt-2 font-display text-5xl font-bold tracking-tight text-foreground sm:text-6xl">
@@ -108,7 +108,7 @@ function ProjectDetail() {
 
         <Reveal delay={0.1}>
           <aside className="glass-panel h-fit rounded-2xl p-6">
-            <p className="font-mono text-[11px] uppercase tracking-wider text-ember">
+            <p className="font-mono text-[0.6875rem] uppercase tracking-wider text-ember">
               Tech
             </p>
             <div className="mt-4 flex flex-wrap gap-1.5">

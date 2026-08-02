@@ -23,7 +23,7 @@ function Portfolio() {
       >
         <div>
           <StaggerItem delay={0}>
-            <span className="inline-flex items-center gap-2 rounded-full border border-border bg-panel/60 px-3 py-1 font-mono text-[11px] text-muted-foreground">
+            <span className="inline-flex items-center gap-2 rounded-full border border-border bg-panel/60 px-3 py-1 font-mono text-[0.6875rem] text-muted-foreground">
               <span className="relative flex h-1.5 w-1.5">
                 <span className="absolute inline-flex h-full w-full rounded-full bg-available opacity-70" />
                 <span className="relative inline-flex h-1.5 w-1.5 rounded-full bg-available" />
@@ -88,7 +88,7 @@ function Portfolio() {
           {Object.entries(stack).map(([group, items], i) => (
             <Reveal key={group} delay={i * 0.05}>
               <div className="glass-panel rounded-2xl p-6">
-                <p className="font-mono text-[11px] uppercase tracking-wider text-ember">
+                <p className="font-mono text-[0.6875rem] uppercase tracking-wider text-ember">
                   {group}
                 </p>
                 <div className="mt-4 flex flex-wrap gap-2">

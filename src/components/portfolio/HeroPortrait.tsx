@@ -42,7 +42,7 @@ export function HeroPortrait() {
         className="pointer-events-none absolute bottom-4 left-4 right-4"
         style={{ rotateX, rotateY, transformStyle: "preserve-3d" }}
       >
-        <div className="glass-panel rounded-lg p-3 font-mono text-[11px] leading-relaxed text-muted-foreground">
+        <div className="glass-panel rounded-lg p-3 font-mono text-[0.6875rem] leading-relaxed text-muted-foreground">
           <div>
             <span className="text-ember">$</span> whoami
           </div>
