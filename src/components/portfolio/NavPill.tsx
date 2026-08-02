@@ -51,7 +51,7 @@ function PillItems({
             key={id}
             href={`#${id}`}
             onClick={() => onSelect(id)}
-            className="relative inline-flex items-center gap-1.5 rounded-full px-3.5 py-1.5 font-mono text-xs transition-colors"
+            className="relative inline-flex items-center gap-1.5 rounded-full px-2.5 py-1.5 font-mono text-xs transition-colors sm:px-3.5"
           >
             {isActive && (
               <motion.span
@@ -66,7 +66,7 @@ function PillItems({
               }`}
             >
               <Icon size={13} />
-              {label}
+              <span className="hidden sm:inline">{label}</span>
             </span>
           </a>
         );
