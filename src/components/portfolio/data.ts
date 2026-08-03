@@ -6,6 +6,7 @@ export type Project = {
   about: string;
   achievements: string[];
   tech: string[];
+  liveUrl: string;
 };
 
 export const projects: Project[] = [
@@ -24,6 +25,7 @@ export const projects: Project[] = [
       "Set up CI/CD with GitHub Actions to automate Android APK builds",
     ],
     tech: ["react", "typescript", "capacitor", "supabase", "sqlite", "tailwindcss"],
+    liveUrl: "https://grace-connect-streams.lovable.app",
   },
   {
     slug: "labianca-frost",
@@ -39,6 +41,7 @@ export const projects: Project[] = [
       "Established a motion design system with strict rules (no height/width animation, reduced-motion support) applied consistently site-wide",
     ],
     tech: ["react", "typescript", "@tanstack/router", "tailwindcss", "framer-motion"],
+    liveUrl: "https://labianca-gh.lovable.app",
   },
 ];
 

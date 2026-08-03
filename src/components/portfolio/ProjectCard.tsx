@@ -1,5 +1,5 @@
 import { Link } from "@tanstack/react-router";
-import { ArrowUpRight } from "lucide-react";
+import { ArrowUpRight, ExternalLink } from "lucide-react";
 import type { Project } from "./data";
 import { TechChip } from "./Chip";
 
@@ -33,11 +33,23 @@ export function ProjectCard({ project }: { project: Project }) {
         {project.title}
       </h3>
       <p className="mt-2 text-sm text-muted-foreground">{project.tagline}</p>
-      <div className="mt-5 flex flex-wrap gap-1.5">
+      <div className="mt-5 flex flex-wrap items-center gap-1.5">
         {project.tech.slice(0, 4).map((t) => (
           <TechChip key={t} label={t} />
         ))}
       </div>
+      <button
+        type="button"
+        onClick={(e) => {
+          e.preventDefault();
+          e.stopPropagation();
+          window.open(project.liveUrl, "_blank", "noopener,noreferrer");
+        }}
+        className="relative z-10 mt-4 inline-flex w-fit items-center gap-1.5 rounded-full border border-foreground/15 bg-foreground/5 px-3 py-1.5 font-mono text-[11px] text-muted-foreground transition-colors hover:border-ember/40 hover:text-ember"
+      >
+        <ExternalLink size={12} />
+        Visit live site
+      </button>
     </Link>
   );
 }
