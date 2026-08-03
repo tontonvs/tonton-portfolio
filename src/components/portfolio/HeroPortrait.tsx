@@ -33,30 +33,32 @@ export function HeroPortrait() {
   return (
     <div
       ref={ref}
-      className="relative flex h-[420px] w-full max-w-md items-end justify-center sm:h-[500px] md:h-[560px]"
+      className="relative flex h-[630px] w-full max-w-md items-center justify-center sm:h-[750px] md:h-[840px]"
       style={{ perspective: 1200 }}
       onPointerMove={handlePointerMove}
       onPointerLeave={handlePointerLeave}
     >
-      <motion.img
-        src={portraitImg}
-        alt="Portrait of Tonton Mensah"
-        className="h-full w-auto object-contain object-bottom"
-        style={{ rotateX, rotateY, transformStyle: "preserve-3d" }}
-      />
+      <div className="relative inline-block">
+        <motion.img
+          src={portraitImg}
+          alt="Portrait of Tonton Mensah"
+          className="h-[630px] w-auto object-contain sm:h-[750px] md:h-[840px]"
+          style={{ rotateX, rotateY, transformStyle: "preserve-3d" }}
+        />
 
-      {/* signature terminal detail */}
-      <motion.div
-        className="pointer-events-none absolute bottom-4 left-0"
-        style={{ rotateX, rotateY, transformStyle: "preserve-3d" }}
-      >
-        <div className="glass-panel rounded-lg p-3 font-mono text-[11px] leading-relaxed text-muted-foreground">
-          <div>
-            <span className="text-ember">$</span> whoami
+        {/* signature terminal detail */}
+        <motion.div
+          className="pointer-events-none absolute bottom-4 left-0"
+          style={{ rotateX, rotateY, transformStyle: "preserve-3d" }}
+        >
+          <div className="glass-panel rounded-lg p-3 font-mono text-[11px] leading-relaxed text-muted-foreground">
+            <div>
+              <span className="text-ember">$</span> whoami
+            </div>
+            <div className="text-foreground">tonton — fullstack, offline-first</div>
           </div>
-          <div className="text-foreground">tonton — fullstack, offline-first</div>
-        </div>
-      </motion.div>
+        </motion.div>
+      </div>
     </div>
   );
 }
