@@ -10,14 +10,23 @@ export function ProjectCard({ project }: { project: Project }) {
       params={{ slug: project.slug }}
       className="group glass-panel relative flex flex-col overflow-hidden rounded-2xl p-6 transition-all duration-200 hover:scale-[1.015] hover:border-ember/40"
     >
-      <div className="mb-6 h-40 overflow-hidden rounded-xl border border-border bg-background/40">
+      <div className="relative mb-6 h-56 overflow-hidden rounded-xl border border-border bg-background/40">
         <div
           aria-hidden
-          className="h-full w-full"
+          className="absolute inset-0"
           style={{
             background:
               "radial-gradient(120% 80% at 20% 0%, color-mix(in oklab, var(--ember) 35%, transparent), transparent 60%), linear-gradient(180deg, #1E1815 0%, #14100D 100%)",
           }}
+        />
+        <img
+          src={project.image}
+          alt={`${project.title} preview`}
+          className={
+            project.imageFit === "contain"
+              ? "relative h-full w-full object-contain p-4"
+              : "relative h-full w-full object-cover object-top"
+          }
         />
       </div>
       <div className="flex items-center justify-between">
