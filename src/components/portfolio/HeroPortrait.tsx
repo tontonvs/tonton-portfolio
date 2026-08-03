@@ -35,7 +35,7 @@ export function HeroPortrait() {
       ref={ref}
       className="pointer-events-none fixed z-[-5]"
       style={{
-        top: "30%",
+        top: "82%",
         left: "68%",
         transform: "translate(-50%, -50%)",
         perspective: 1200,
@@ -52,7 +52,7 @@ export function HeroPortrait() {
         <motion.img
           src={portraitImg}
           alt="Portrait of Tonton Mensah"
-          className="h-[820px] w-auto object-contain sm:h-[975px] md:h-[1092px]"
+          className="h-[776px] w-auto object-contain sm:h-[923px] md:h-[1033px]"
           style={{ rotateX, rotateY, transformStyle: "preserve-3d" }}
         />
 
