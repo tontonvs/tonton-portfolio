@@ -157,8 +157,8 @@ export function NavPill() {
             <motion.nav
               aria-label="Section navigation"
               initial={false}
-              exit={{ scale: 0.25, opacity: 0 }}
-              transition={{ duration: 0.34, ease: [0.4, 0, 1, 1] }}
+              exit={{ scale: 0.55, opacity: 0 }}
+              transition={{ duration: 0.45, ease: [0.22, 1, 0.36, 1] }}
               style={{ transformOrigin: "center" }}
               className="relative inline-flex max-w-full flex-wrap items-center justify-center gap-1 rounded-3xl border border-foreground/15 bg-foreground/10 p-1 backdrop-blur-md sm:rounded-full sm:p-0"
             >
@@ -178,10 +178,14 @@ export function NavPill() {
             <motion.nav
               aria-label="Section navigation (docked)"
               layout
-              initial={{ opacity: 0, scale: 0.6 }}
+              initial={{ opacity: 0, scale: 0.8 }}
               animate={{ opacity: 1, scale: 1 }}
-              exit={{ opacity: 0, scale: 0.6 }}
-              transition={{ layout: { duration: 0.4, ease: [0.16, 1, 0.3, 1] }, duration: 0.25 }}
+              exit={{ opacity: 0, scale: 0.8 }}
+              transition={{
+                layout: { type: "spring", stiffness: 220, damping: 30, mass: 0.7 },
+                duration: 0.4,
+                ease: [0.22, 1, 0.36, 1],
+              }}
               className="relative inline-flex items-center gap-1 rounded-full border border-foreground/15 bg-foreground/10 shadow-lg shadow-background/40 backdrop-blur-md"
             >
               <AnimatePresence mode="popLayout" initial={false}>
