@@ -66,15 +66,25 @@ function ProjectDetail() {
       </Reveal>
 
       <Reveal delay={0.05}>
-        <div className="glass-panel mt-10 h-64 overflow-hidden rounded-2xl sm:h-80">
+        <div className="glass-panel relative mt-10 h-64 overflow-hidden rounded-2xl sm:h-80">
           <div
             aria-hidden
-            className="h-full w-full"
+            className="absolute inset-0"
             style={{
               background:
                 "radial-gradient(120% 80% at 30% 20%, color-mix(in oklab, var(--ember) 35%, transparent), transparent 60%), linear-gradient(180deg, #1E1815 0%, #14100D 100%)",
             }}
           />
+          <div className="relative flex h-full w-full gap-0.5">
+            {project.images.map((src, i) => (
+              <img
+                key={i}
+                src={src}
+                alt={`${project.title} screenshot ${i + 1}`}
+                className="h-full flex-1 object-cover object-top"
+              />
+            ))}
+          </div>
         </div>
       </Reveal>
 
