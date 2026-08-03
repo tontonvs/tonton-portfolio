@@ -70,9 +70,7 @@ function Portfolio() {
               Download Resume
             </a>
           </div>
-          <StaggerItem delay={0.1} className="w-full max-w-full md:max-w-md">
-            <HeroPortrait />
-          </StaggerItem>
+          <HeroPortrait />
         </div>
       </section>
 

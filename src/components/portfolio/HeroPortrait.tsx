@@ -33,16 +33,26 @@ export function HeroPortrait() {
   return (
     <div
       ref={ref}
-      className="relative flex h-[630px] w-full max-w-md items-center justify-center sm:h-[750px] md:h-[840px]"
-      style={{ perspective: 1200 }}
+      className="pointer-events-none fixed z-[-5]"
+      style={{
+        top: "30%",
+        left: "68%",
+        transform: "translate(-50%, -50%)",
+        perspective: 1200,
+      }}
       onPointerMove={handlePointerMove}
       onPointerLeave={handlePointerLeave}
     >
-      <div className="relative inline-block">
+      <motion.div
+        className="pointer-events-auto relative inline-block"
+        initial={{ opacity: 0, y: 8 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.5, ease: "easeOut", delay: 0.1 }}
+      >
         <motion.img
           src={portraitImg}
           alt="Portrait of Tonton Mensah"
-          className="h-[630px] w-auto object-contain sm:h-[750px] md:h-[840px]"
+          className="h-[820px] w-auto object-contain sm:h-[975px] md:h-[1092px]"
           style={{ rotateX, rotateY, transformStyle: "preserve-3d" }}
         />
 
@@ -58,7 +68,7 @@ export function HeroPortrait() {
             <div className="text-foreground">tonton — fullstack, offline-first</div>
           </div>
         </motion.div>
-      </div>
+      </motion.div>
     </div>
   );
 }
