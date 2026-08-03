@@ -57,8 +57,8 @@ function PillItems({
               <motion.span
                 layoutId={layoutId}
                 className="absolute inset-0 rounded-full bg-foreground"
-                transition={{ type: "spring", stiffness: 400, damping: 32 }}
-              />
+                transition={{ type: "spring", stiffness: 260, damping: 30, mass: 0.6 }}
+              />x
             )}
             <span
               className={`relative z-10 inline-flex items-center gap-1.5 ${
