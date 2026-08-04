@@ -77,4 +77,8 @@ export const stack = {
     ["github-actions", "workflows"],
     ["git", "cli"],
   ],
+  "AI & Agentic": [
+    ["claude-code", "agentic"],
+    ["ai-coding-agents", "directed"],
+  ],
 } as const;

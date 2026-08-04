@@ -21,7 +21,7 @@ function Portfolio() {
         id="home"
         className="grid gap-10 pt-8 md:grid-cols-[1.15fr_1fr] md:items-center md:gap-14 md:pt-16"
       >
-        <div className="pl-[5px]">
+        <div>
           <StaggerItem delay={0}>
             <span className="inline-flex items-center gap-2 rounded-full border border-border bg-panel/60 px-3 py-1 font-mono text-[0.6875rem] text-muted-foreground">
               <span className="relative flex h-1.5 w-1.5">
@@ -39,7 +39,7 @@ function Portfolio() {
           </StaggerItem>
 
           <StaggerItem delay={0.12}>
-            <h1 className="mt-0.5 font-display text-[clamp(3.5rem,9vw,6.5rem)] font-bold leading-[0.92] tracking-tight text-balance text-foreground">
+            <h1 className="mt-3 font-display text-[clamp(2.75rem,7vw,5rem)] font-bold leading-[0.95] tracking-tight text-balance text-foreground">
               Tonton
               <br />
               Mensah.
@@ -64,7 +64,7 @@ function Portfolio() {
             <a
               href="/resume.pdf"
               download="Tonton-Mensah-Resume.pdf"
-              className="inline-flex items-center gap-2 rounded-lg bg-ember px-4 py-2.5 text-xs font-semibold text-foreground shadow-lg shadow-ember/20 transition-transform hover:scale-[1.03]"
+              className="inline-flex items-center gap-2 rounded-full bg-ember px-4 py-2 text-xs font-semibold text-primary-foreground shadow-lg shadow-ember/20 transition-transform hover:scale-[1.03]"
             >
               <Download size={14} />
               Download Resume
@@ -81,6 +81,22 @@ function Portfolio() {
             Stack
           </h2>
           <p className="mt-2 text-muted-foreground">Tools I build with day to day.</p>
+        </Reveal>
+
+        <Reveal delay={0.04}>
+          <div className="glass-panel mt-8 rounded-2xl p-6">
+            <p className="font-mono text-[0.6875rem] uppercase tracking-wider text-ember">
+              How I Build
+            </p>
+            <p className="mt-3 leading-relaxed text-muted-foreground">
+              I increasingly work agentically — directing AI coding agents like Claude
+              Code through real feature development, debugging, and iterative design
+              rather than writing every line solo. It's a workflow, not a shortcut: I'm
+              still the one reviewing diffs, resolving merge conflicts, and deciding
+              what's actually correct, but pairing with an agent lets me move through a
+              lot more iteration per session than working alone.
+            </p>
+          </div>
         </Reveal>
 
         <div className="mt-10 grid gap-8 sm:grid-cols-2">
