@@ -32,7 +32,8 @@ export const projects: Project[] = [
     ],
     tech: ["react", "typescript", "capacitor", "supabase", "sqlite", "tailwindcss"],
     liveUrl: "https://grace-connect-streams.lovable.app",
-    images: [graceConnectHome, graceConnectLive, graceConnectChat],
+    image: graceConnectHome,
+    images: [graceConnectHome],
   },
   {
     slug: "labianca-frost",
