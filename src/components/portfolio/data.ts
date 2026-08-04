@@ -1,6 +1,4 @@
 import graceConnectHome from "@/assets/grace-connect-home.jpg";
-import graceConnectLive from "@/assets/grace-connect-live.jpg";
-import graceConnectChat from "@/assets/grace-connect-chat.jpg";
 import labiancaHome from "@/assets/labianca-home.png";
 
 export type Project = {
@@ -12,6 +10,8 @@ export type Project = {
   achievements: string[];
   tech: string[];
   liveUrl: string;
+  image: string;
+  imageFit?: "cover" | "contain";
   images: string[];
 };
 
@@ -32,7 +32,8 @@ export const projects: Project[] = [
     ],
     tech: ["react", "typescript", "capacitor", "supabase", "sqlite", "tailwindcss"],
     liveUrl: "https://grace-connect-streams.lovable.app",
-    images: [graceConnectHome, graceConnectLive, graceConnectChat],
+    image: graceConnectHome,
+    images: [graceConnectHome],
   },
   {
     slug: "labianca-frost",
@@ -49,6 +50,8 @@ export const projects: Project[] = [
     ],
     tech: ["react", "typescript", "@tanstack/router", "tailwindcss", "framer-motion"],
     liveUrl: "https://labianca-gh.lovable.app",
+    image: labiancaHome,
+    imageFit: "contain",
     images: [labiancaHome],
   },
 ];
