@@ -76,7 +76,7 @@ function ProjectDetail() {
             }}
           />
           <div className="relative flex h-full w-full gap-0.5">
-            {project.images.map((src, i) => (
+            {project.images.map((src: string, i: number) => (
               <img
                 key={i}
                 src={src}
