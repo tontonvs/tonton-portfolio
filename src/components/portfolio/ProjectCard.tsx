@@ -19,15 +19,16 @@ export function ProjectCard({ project }: { project: Project }) {
               "radial-gradient(120% 80% at 20% 0%, color-mix(in oklab, var(--ember) 35%, transparent), transparent 60%), linear-gradient(180deg, #1E1815 0%, #14100D 100%)",
           }}
         />
-        <img
-          src={project.image}
-          alt={`${project.title} preview`}
-          className={
-            project.imageFit === "contain"
-              ? "relative h-full w-full object-contain p-4"
-              : "relative h-full w-full object-cover object-top"
-          }
-        />
+        <div className="relative flex h-full w-full gap-0.5">
+          {project.images.map((src, i) => (
+            <img
+              key={i}
+              src={src}
+              alt={`${project.title} preview ${i + 1}`}
+              className="h-full flex-1 object-cover object-top"
+            />
+          ))}
+        </div>
       </div>
       <div className="flex items-center justify-between">
         <span className="font-mono text-[0.6875rem] uppercase tracking-wider text-ember">
