@@ -1,6 +1,4 @@
 import graceConnectHome from "@/assets/grace-connect-home.jpg";
-import graceConnectLive from "@/assets/grace-connect-live.jpg";
-import graceConnectChat from "@/assets/grace-connect-chat.jpg";
 import labiancaHome from "@/assets/labianca-home.png";
 
 export type Project = {
@@ -12,6 +10,8 @@ export type Project = {
   achievements: string[];
   tech: string[];
   liveUrl: string;
+  image: string;
+  imageFit?: "cover" | "contain";
   images: string[];
 };
 
