@@ -50,6 +50,8 @@ export const projects: Project[] = [
     ],
     tech: ["react", "typescript", "@tanstack/router", "tailwindcss", "framer-motion"],
     liveUrl: "https://labianca-gh.lovable.app",
+    image: labiancaHome,
+    imageFit: "contain",
     images: [labiancaHome],
   },
 ];
