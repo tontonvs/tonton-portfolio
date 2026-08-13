@@ -1,5 +1,6 @@
 import graceConnectHome from "@/assets/grace-connect-home.jpg";
 import labiancaHome from "@/assets/labianca-home.png";
+import yoglaitHero from "@/assets/yoglait-hero.png";
 
 export type Project = {
   slug: string;
@@ -53,6 +54,26 @@ export const projects: Project[] = [
     image: labiancaHome,
     imageFit: "contain",
     images: [labiancaHome],
+  },
+  {
+    slug: "yoglait",
+    tag: "Marketing + E-commerce",
+    title: "Yoglait",
+    tagline:
+      "A playful ordering site for a Ghanaian yoghurt brand — flavour menu, Paystack checkout, and rider dispatch.",
+    about:
+      "Yoglait needed more than a marketing page — a full ordering flow for a yoghurt brand based in Tema, Ghana. I built it with React, TypeScript, TanStack Router, and Supabase, with a cart-to-checkout flow backed by Paystack for payments and a WhatsApp ordering fallback for customers who prefer to order that way. A staff dashboard handles order management, rider assignment, and delivery dispatch, sitting behind its own auth flow. The whole site follows a bold, bouncy brand system — Fredoka/Baloo display type over Poppins body text, a floating glassmorphic pill nav, and flavour-coded product cards — built mobile-first for low-end devices and slower connections.",
+    achievements: [
+      "Built the cart-to-checkout flow with Paystack payments and a WhatsApp order fallback for the Ghanaian market",
+      "Built a staff dashboard for order management, rider assignment, and delivery dispatch with its own auth flow",
+      "Set up Supabase for products, orders, and staff sessions",
+      "Designed a playful, flavour-coded UI system (pill nav, rounded display type, staggered motion) optimized for fast loads on slower connections",
+    ],
+    tech: ["react", "typescript", "@tanstack/router", "supabase", "paystack", "framer-motion", "tailwindcss"],
+    liveUrl: "https://yoglait.lovable.app",
+    image: yoglaitHero,
+    imageFit: "contain",
+    images: [yoglaitHero],
   },
 ];
 
