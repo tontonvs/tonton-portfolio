@@ -1,6 +1,8 @@
 import graceConnectHome from "@/assets/grace-connect-home.jpg";
 import labiancaHome from "@/assets/labianca-home.png";
-import yoglaitHero from "@/assets/yoglait-hero.png";
+import yoglaitDesktop from "@/assets/yoglait.png";
+import yoglaitMobile1 from "@/assets/yoglait1.jpg";
+import yoglaitMobile2 from "@/assets/yoglait2.jpg";
 
 export type Project = {
   slug: string;
@@ -71,9 +73,9 @@ export const projects: Project[] = [
     ],
     tech: ["react", "typescript", "@tanstack/router", "supabase", "paystack", "framer-motion", "tailwindcss"],
     liveUrl: "https://yoglait.lovable.app",
-    image: yoglaitHero,
-    imageFit: "contain",
-    images: [yoglaitHero],
+    image: yoglaitDesktop,
+    imageFit: "cover",
+    images: [yoglaitMobile1, yoglaitMobile2],
   },
 ];
 

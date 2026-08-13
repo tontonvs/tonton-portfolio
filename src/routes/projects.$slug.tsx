@@ -75,15 +75,12 @@ function ProjectDetail() {
                 "radial-gradient(120% 80% at 30% 20%, color-mix(in oklab, var(--ember) 35%, transparent), transparent 60%), linear-gradient(180deg, #1E1815 0%, #14100D 100%)",
             }}
           />
-          <div className="relative flex h-full w-full gap-0.5">
-            {project.images.map((src: string, i: number) => (
-              <img
-                key={i}
-                src={src}
-                alt={`${project.title} screenshot ${i + 1}`}
-                className="h-full flex-1 object-cover object-top"
-              />
-            ))}
+          <div className="relative h-full w-full">
+            <img
+              src={project.image}
+              alt={`${project.title} desktop screenshot`}
+              className={`h-full w-full ${project.imageFit === "contain" ? "object-contain" : "object-cover"} object-top`}
+            />
           </div>
         </div>
       </Reveal>
