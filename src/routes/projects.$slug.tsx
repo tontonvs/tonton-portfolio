@@ -18,9 +18,9 @@ export const Route = createFileRoute("/projects/$slug")({
     const { project } = loaderData;
     return {
       meta: [
-        { title: `${project.title} — Tonton Mensah` },
+        { title: `${project.title} | Tonton Mensah` },
         { name: "description", content: project.tagline },
-        { property: "og:title", content: `${project.title} — Tonton Mensah` },
+        { property: "og:title", content: `${project.title} | Tonton Mensah` },
         { property: "og:description", content: project.tagline },
       ],
     };
@@ -75,13 +75,15 @@ function ProjectDetail() {
                 "radial-gradient(120% 80% at 30% 20%, color-mix(in oklab, var(--ember) 35%, transparent), transparent 60%), linear-gradient(180deg, #1E1815 0%, #14100D 100%)",
             }}
           />
-          <div className="relative h-full w-full">
-            <img
-              src={project.image}
-              alt={`${project.title} desktop screenshot`}
-              className={`h-full w-full ${project.imageFit === "contain" ? "object-contain" : "object-cover"} object-top`}
-            />
-          </div>
+          {project.image && (
+            <div className="relative h-full w-full">
+              <img
+                src={project.image}
+                alt={`${project.title} desktop screenshot`}
+                className={`h-full w-full ${project.imageFit === "contain" ? "object-contain" : "object-cover"} object-top`}
+              />
+            </div>
+          )}
         </div>
       </Reveal>
 

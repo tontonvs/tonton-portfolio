@@ -65,7 +65,7 @@ export function HeroPortrait() {
             <div>
               <span className="text-ember">$</span> whoami
             </div>
-            <div className="text-foreground">tonton — fullstack, offline-first</div>
+            <div className="text-foreground">tonton, fullstack, offline-first</div>
           </div>
         </motion.div>
       </motion.div>

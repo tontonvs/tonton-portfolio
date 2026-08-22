@@ -32,6 +32,17 @@ function Portfolio() {
             </span>
           </StaggerItem>
 
+          <StaggerItem delay={0.03}>
+            <a
+              href="https://noven-digital.mensahtonton.workers.dev/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="mt-3 inline-flex items-center gap-1.5 font-mono text-[0.6875rem] text-muted-foreground transition-colors hover:text-ember"
+            >
+              Building noven, my dev studio. Visit my website for more info →
+            </a>
+          </StaggerItem>
+
           <StaggerItem delay={0.06}>
             <p className="mt-6 font-mono text-xs uppercase tracking-[0.18em] text-ember">
               Fullstack Developer
@@ -89,7 +100,7 @@ function Portfolio() {
               How I Build
             </p>
             <p className="mt-3 leading-relaxed text-muted-foreground">
-              I focus on clean, maintainable architecture — offline-first data layers,
+              I focus on clean, maintainable architecture, offline-first data layers,
               consistent design systems, and CI/CD pipelines that make shipping
               predictable. I care about the details: performance, accessibility, and
               code that's easy to hand off or pick back up months later. I'm also
@@ -152,7 +163,7 @@ function Portfolio() {
           </div>
         </Reveal>
         <p className="mt-10 text-center font-mono text-xs text-muted-foreground">
-          Tonton Mensah — Accra, GH
+          Tonton Mensah, Accra, GH
         </p>
       </section>
     </main>

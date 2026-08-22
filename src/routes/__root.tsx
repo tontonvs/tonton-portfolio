@@ -69,14 +69,14 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "Tonton Mensah — Fullstack Developer" },
+      { title: "Tonton Mensah | Fullstack Developer" },
       {
         name: "description",
         content:
           "Portfolio of Tonton Mensah, a fullstack developer in Accra building offline-first mobile apps and premium marketing sites with React, TypeScript, and Supabase.",
       },
       { name: "author", content: "Tonton Mensah" },
-      { property: "og:title", content: "Tonton Mensah — Fullstack Developer" },
+      { property: "og:title", content: "Tonton Mensah | Fullstack Developer" },
       {
         property: "og:description",
         content:
@@ -84,7 +84,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
-      { name: "twitter:title", content: "Tonton Mensah — Fullstack Developer" },
+      { name: "twitter:title", content: "Tonton Mensah | Fullstack Developer" },
       { name: "twitter:description", content: "Portfolio of Tonton Mensah, a fullstack developer in Accra building offline-first mobile apps and premium marketing sites with React, TypeScript, and Supabase." },
       { property: "og:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/0f383c03-8f3c-4804-9cd6-43f96308b2b5/id-preview-ffee340e--8320b13e-5b2f-48a0-b130-c379a5b27812.lovable.app-1784420356509.png" },
       { name: "twitter:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/0f383c03-8f3c-4804-9cd6-43f96308b2b5/id-preview-ffee340e--8320b13e-5b2f-48a0-b130-c379a5b27812.lovable.app-1784420356509.png" },
