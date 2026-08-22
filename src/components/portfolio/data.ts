@@ -3,8 +3,7 @@ import labiancaHome from "@/assets/labianca-home.png";
 import yoglaitDesktop from "@/assets/yoglait.png";
 import yoglaitMobile1 from "@/assets/yoglait1.jpg";
 import yoglaitMobile2 from "@/assets/yoglait2.jpg";
-// TODO: import noven screenshots here once added to src/assets, e.g.:
-// import novenHome from "@/assets/noven-home.png";
+import novenHome from "@/assets/noven-home.png";
 
 export type Project = {
   slug: string;
@@ -95,9 +94,10 @@ export const projects: Project[] = [
     // TODO: swap in real noven stack/tech once finalized
     tech: ["react", "typescript", "tailwindcss"],
     liveUrl: "https://noven-digital.mensahtonton.workers.dev/",
-    // TODO: add real screenshots to src/assets and reference them here, e.g. image: novenHome
-    image: "",
-    images: [],
+    // TODO: add more noven screenshots to src/assets as you get them (e.g. mobile views, work page)
+    image: novenHome,
+    imageFit: "cover",
+    images: [novenHome],
   },
 ];
 
