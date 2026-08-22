@@ -3,6 +3,7 @@ import { ArrowLeft, Check } from "lucide-react";
 import { projects } from "@/components/portfolio/data";
 import { TechChip } from "@/components/portfolio/Chip";
 import { Reveal } from "@/components/portfolio/Reveal";
+import { ProjectCard } from "@/components/portfolio/ProjectCard";
 
 export const Route = createFileRoute("/projects/$slug")({
   loader: ({ params }) => {
@@ -40,6 +41,7 @@ export const Route = createFileRoute("/projects/$slug")({
 
 function ProjectDetail() {
   const { project } = Route.useLoaderData();
+  const otherProjects = projects.filter((p) => p.slug !== project.slug);
 
   return (
     <main className="mx-auto max-w-4xl px-5 pb-24 pt-10 sm:px-8 sm:pt-14">
@@ -128,6 +130,23 @@ function ProjectDetail() {
           </aside>
         </Reveal>
       </div>
+
+      {otherProjects.length > 0 && (
+        <section className="mt-20">
+          <Reveal>
+            <h2 className="font-display text-2xl font-semibold text-foreground">
+              Other Projects
+            </h2>
+          </Reveal>
+          <div className="mt-6 grid gap-6 sm:grid-cols-2">
+            {otherProjects.map((p, i) => (
+              <Reveal key={p.slug} delay={i * 0.06}>
+                <ProjectCard project={p} />
+              </Reveal>
+            ))}
+          </div>
+        </section>
+      )}
     </main>
   );
 }
