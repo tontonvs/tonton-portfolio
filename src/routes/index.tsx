@@ -89,12 +89,12 @@ function Portfolio() {
               How I Build
             </p>
             <p className="mt-3 leading-relaxed text-muted-foreground">
-              I increasingly work agentically — directing AI coding agents like Claude
-              Code through real feature development, debugging, and iterative design
-              rather than writing every line solo. It's a workflow, not a shortcut: I'm
-              still the one reviewing diffs, resolving merge conflicts, and deciding
-              what's actually correct, but pairing with an agent lets me move through a
-              lot more iteration per session than working alone.
+              I focus on clean, maintainable architecture — offline-first data layers,
+              consistent design systems, and CI/CD pipelines that make shipping
+              predictable. I care about the details: performance, accessibility, and
+              code that's easy to hand off or pick back up months later. I'm also
+              actively learning to work with and integrate AI coding tools like Claude
+              Code into my workflow.
             </p>
           </div>
         </Reveal>
